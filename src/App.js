@@ -1,5 +1,25 @@
+import { Box } from '@mui/material';
+import { Route, Routes } from 'react-router-dom';
+import {
+  Navbar,
+  Feed,
+  VideoDetail,
+  ChannelDetail,
+  SearchFeed,
+} from './components';
+
 function App() {
-  return <h1>Youtube Clone</h1>;
+  return (
+    <Box>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Feed />} />
+        <Route path='/video/:id' element={<VideoDetail />} />
+        <Route path='/channel/:id' element={<ChannelDetail />} />
+        <Route path='/search/:searchTerm' element={<SearchFeed />} />
+      </Routes>
+    </Box>
+  );
 }
 
 export default App;
