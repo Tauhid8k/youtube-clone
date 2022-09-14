@@ -14,7 +14,7 @@ const SearchBar = () => {
       }}
     >
       <input type='text' className='search-input' placeholder='Search...' />
-      <IconButton type='submit' sx={{ color: 'red', borderRadius: '0' }}>
+      <IconButton type='submit' sx={{ color: 'red' }}>
         <Search />
       </IconButton>
     </Paper>
