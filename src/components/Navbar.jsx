@@ -15,10 +15,14 @@ const Navbar = () => {
         px={2}
         direction='row'
         alignItems='center'
-        gap='10px'
+        gap='1rem'
         justifyContent='space-between'
         className='shadow'
-        sx={{ backgroundColor: 'white' }}
+        sx={{
+          backgroundColor: 'white',
+          marginBottom: '1rem',
+          position: 'relative',
+        }}
       >
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
           <IconButton onClick={() => setIsMenuOpen(true)}>
@@ -29,13 +33,16 @@ const Navbar = () => {
             style={{ display: 'flex', gap: '10px', alignItems: 'center' }}
           >
             <img src='/img/logo.png' alt='logo' height='40' />
-            <span style={{ fontSize: '1.2rem' }}>CloneTube</span>
+            <span style={{ fontSize: '1.2rem', fontWeight: '600' }}>
+              CloneTube
+            </span>
           </Link>
         </Box>
         <SearchBar />
       </Stack>
       <SideMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       <Box
+        onClick={() => setIsMenuOpen(false)}
         sx={{
           position: 'absolute',
           top: 0,
@@ -47,7 +54,7 @@ const Navbar = () => {
           opacity: isMenuOpen ? 1 : 0,
           pointerEvents: isMenuOpen ? 'initial' : 'none',
           transition: '0.5s',
-          zIndex: '9',
+          zIndex: 9,
         }}
       />
     </>
