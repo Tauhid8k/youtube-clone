@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import { Menu } from '@mui/icons-material';
 import { categories } from '../utils/constants';
 import { v4 as uuidV4 } from 'uuid';
+import { useSelector, useDispatch } from 'react-redux';
+import { sideMenuActions } from '../redux/sideMenuSlice';
 
 const SideMenu = ({ isMenuOpen, setIsMenuOpen }) => {
-  // Selected Category
-  const selectedCategory = 'Home';
+  const dispatch = useDispatch();
+  const { selectedCategory } = useSelector((state) => state.sideMenu);
 
   return (
     <Box
@@ -49,11 +51,13 @@ const SideMenu = ({ isMenuOpen, setIsMenuOpen }) => {
       <Stack className='category-scrollbar'>
         {categories.map((category) => (
           <button
-            className='category-btn'
+            onClick={() =>
+              dispatch(sideMenuActions.setSelectedCategory(category.name))
+            }
+            className={`category-btn ${
+              category.name === selectedCategory && 'active-category'
+            }`}
             key={uuidV4()}
-            style={{
-              backgroundColor: category.name === selectedCategory && '#f1f3fa',
-            }}
           >
             <span style={{ display: 'inline-flex', verticalAlign: 'middle' }}>
               {category.icon}

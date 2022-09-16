@@ -107,6 +107,7 @@ a {
   font-weight: 500;
   font-size: 1.05rem;
   text-transform: capitalize;
+  color: var(--dark);
   background-color: transparent;
   padding: 8px 10px;
   margin: 5px 0px;
@@ -131,4 +132,8 @@ a {
 }
 .category-btn:hover::before {
   width: 100%;
+}
+.active-category {
+  background-color: #f1f3fa;
+  outline: 1px solid #e5e5e5;
 }

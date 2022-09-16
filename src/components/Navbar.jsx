@@ -20,7 +20,6 @@ const Navbar = () => {
         className='shadow'
         sx={{
           backgroundColor: 'white',
-          marginBottom: '1rem',
           position: 'relative',
         }}
       >

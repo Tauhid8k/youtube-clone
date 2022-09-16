@@ -12,7 +12,7 @@ import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
 
 export const categories = [
-  { name: 'Home', icon: <HomeOutlinedIcon /> },
+  { name: 'Recent', icon: <HomeOutlinedIcon /> },
   { name: 'Music', icon: <MusicNoteOutlinedIcon /> },
   { name: 'Education', icon: <SchoolOutlinedIcon /> },
   { name: 'Podcast', icon: <GraphicEqIcon /> },
