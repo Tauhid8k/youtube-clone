@@ -1,12 +1,14 @@
-import { useState } from 'react';
 import { Stack, IconButton, Box } from '@mui/material';
 import { Menu } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { sideMenuActions } from '../redux/sideMenuSlice';
 import SearchBar from './SearchBar';
 import SideMenu from './SideMenu';
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const dispatch = useDispatch();
+  const { isMenuOpen } = useSelector((state) => state.sideMenu);
 
   return (
     <>
@@ -24,11 +26,16 @@ const Navbar = () => {
         }}
       >
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-          <IconButton onClick={() => setIsMenuOpen(true)}>
+          <IconButton
+            onClick={() => dispatch(sideMenuActions.setIsMenuOpen(true))}
+          >
             <Menu />
           </IconButton>
           <Link
             to='/'
+            onClick={() =>
+              dispatch(sideMenuActions.setSelectedCategory('Recent'))
+            }
             style={{ display: 'flex', gap: '10px', alignItems: 'center' }}
           >
             <img src='/img/logo.png' alt='logo' height='40' />
@@ -39,9 +46,9 @@ const Navbar = () => {
         </Box>
         <SearchBar />
       </Stack>
-      <SideMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+      <SideMenu />
       <Box
-        onClick={() => setIsMenuOpen(false)}
+        onClick={() => dispatch(sideMenuActions.setIsMenuOpen(false))}
         sx={{
           position: 'absolute',
           top: 0,

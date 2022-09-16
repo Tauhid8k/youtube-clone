@@ -2,7 +2,6 @@ import { Grid } from '@mui/material';
 import VideoCard from './VideoCard';
 
 const Videos = ({ videos }) => {
-  console.log(videos);
   return (
     <Grid container spacing={2}>
       {videos.map((item) => (

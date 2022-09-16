@@ -6,9 +6,11 @@ import { v4 as uuidV4 } from 'uuid';
 import { useSelector, useDispatch } from 'react-redux';
 import { sideMenuActions } from '../redux/sideMenuSlice';
 
-const SideMenu = ({ isMenuOpen, setIsMenuOpen }) => {
+const SideMenu = () => {
   const dispatch = useDispatch();
-  const { selectedCategory } = useSelector((state) => state.sideMenu);
+  const { selectedCategory, isMenuOpen } = useSelector(
+    (state) => state.sideMenu
+  );
 
   return (
     <Box
@@ -35,7 +37,9 @@ const SideMenu = ({ isMenuOpen, setIsMenuOpen }) => {
           mb: 1,
         }}
       >
-        <IconButton onClick={() => setIsMenuOpen(false)}>
+        <IconButton
+          onClick={() => dispatch(sideMenuActions.setIsMenuOpen(false))}
+        >
           <Menu />
         </IconButton>
         <Link

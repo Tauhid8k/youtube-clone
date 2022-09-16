@@ -142,7 +142,9 @@ a {
 .video-channel-name {
   font-size: 14px;
   font-weight: 500;
-  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .video-title {
   font-size: 1.2rem;

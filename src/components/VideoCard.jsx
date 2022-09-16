@@ -1,5 +1,6 @@
 import { Card, CardMedia, CardContent } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { CheckCircle } from '@mui/icons-material';
 import { limitStr } from '../utils/constants';
 
 const VideoCard = ({
@@ -8,7 +9,6 @@ const VideoCard = ({
     snippet,
   },
 }) => {
-  console.log(snippet);
   return (
     <Card>
       <Link to={`/video/${videoId}`}>
@@ -20,8 +20,22 @@ const VideoCard = ({
         />
       </Link>
       <CardContent sx={{ height: 130 }}>
-        <Link to={`/channel/${snippet?.channelId}`}>
+        <Link
+          to={`/channel/${snippet?.channelId}`}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '5px',
+            marginBottom: '5px',
+          }}
+        >
           <h4 className='video-channel-name'>{snippet?.channelTitle}</h4>
+          <CheckCircle
+            style={{
+              fontSize: '12px',
+              color: '#444',
+            }}
+          />
         </Link>
         <Link to={`/video/${videoId}`}>
           <h2 className='video-title'>{limitStr(snippet?.title)}</h2>
