@@ -11,6 +11,7 @@ import TheaterComedyOutlinedIcon from '@mui/icons-material/TheaterComedyOutlined
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
 
+// Categories & their Icons
 export const categories = [
   { name: 'Recent', icon: <HomeOutlinedIcon /> },
   { name: 'Music', icon: <MusicNoteOutlinedIcon /> },
@@ -26,3 +27,9 @@ export const categories = [
   { name: 'Gym', icon: <FitnessCenterIcon /> },
   { name: 'Crypto', icon: <DeveloperModeIcon /> },
 ];
+
+// Text String Limiter
+// Limit String Length
+export function limitStr(str, length = 80) {
+  return str.length > length ? str.substring(0, length) + '...' : str;
+}

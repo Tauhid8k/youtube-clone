@@ -137,3 +137,19 @@ a {
   background-color: #f1f3fa;
   outline: 1px solid #e5e5e5;
 }
+
+/* Videos */
+.video-channel-name {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.video-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--dark);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
